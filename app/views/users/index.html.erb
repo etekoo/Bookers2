@@ -1,10 +1,13 @@
-<% @users.each do |user| %>
-
-
-<!-- ユーザーの詳細 -->
-<div>
-  <h3><%= user.name %></h3>
-  <%= image_tag user.get_profile_image(100,100) %>
-</div>
-
-<% end %>
+<!-- ユーザーの投稿一覧 -->
+<table>
+  <tr>
+    <th>プロフィール画像</th>
+    <th>ユーザー名</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= image_tag user.get_profile_image(100, 100) %></td>
+      <td><%= user.name %></td>
+    </tr>
+  <% end %>
+</table>

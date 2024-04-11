@@ -1,12 +1,26 @@
 <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p>
 
-<h2>Book detail</h2>
-<p><%= @book.title %></p>
+<!-- 投稿詳細 -->
+<table>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Opinion</th>
+  </tr>
 
-<p><%= @book.body %></p>
+    <tr>
+      <td>
+        <%= image_tag @book.user.get_profile_image(100, 100) %>
+      </td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+    </tr>
+</table>
 
 <% if @book.user == current_user %>
-    <%= link_to "edit", edit_book_path(@book) %>
-    <%= link_to "destroy", book_path(@book), method: :delete %>
-  <% end %>
+    <%= link_to "edit", edit_book_path(@book), method: :edit %>
+<% end %>
+
+<% puts @user.inspect %>
+<% puts current_user.inspect %>
