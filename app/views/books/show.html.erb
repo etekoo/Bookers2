@@ -19,7 +19,7 @@
 </table>
 
 <% if @book.user == current_user %>
-    <%= link_to "edit", edit_book_path(@book), method: :edit %>
+    <%= link_to "edit", edit_book_path(@book), method: :get %>
 <% end %>
 
 <% puts @user.inspect %>
