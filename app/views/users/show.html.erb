@@ -7,3 +7,20 @@
   <% end %>
 </div>
 
+<!-- ユーザーの投稿一覧 -->
+<table>
+  <tr>
+    
+    <th>タイトル</th>
+    <th>本文</th>
+  </tr>
+  <% @books.each do |book| %>
+    <tr>
+      <td>
+        <%= image_tag book.user.get_profile_image(100, 100) %>
+      </td>
+      <td><%= link_to book.title, book_path(book) %></td>
+      <td><%= book.body %></td>
+    </tr>
+  <% end %>
+</table>
