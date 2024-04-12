@@ -38,10 +38,10 @@ end
   
   
   def destroy
-    @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to '/books'
-  end
+  @post = Book.find(params[:id])
+  @post.destroy
+  redirect_to books_path
+end
   
   private
   

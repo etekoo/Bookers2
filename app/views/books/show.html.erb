@@ -40,6 +40,9 @@
 </table>
 
 <% if @post.user == current_user %>
-    <%= link_to "edit", edit_book_path(@post), method: :get %>
+    <%= link_to "Edit", edit_book_path(@post), method: :get %>
 <% end %>
 
+<% if @post.user == current_user %>
+    <%= link_to "Destroy", @post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+<% end %>
