@@ -5,18 +5,18 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
-    
-  end
+  @post = Book.find(params[:id])
+  @user = @post.user
+  @book = Book.new 
+end
   
   def create
-  @book = Book.new(book_params)
-  @book.user_id = current_user.id # ログイン中のユーザーを関連付ける
+  @book = current_user.books.build(book_params)
   if @book.save
     redirect_to books_path
   else
      # バリデーションエラーがある場合の処理
-    puts @book.errors.full_messages # 追加
+    puts @book.errors.full_messages 
     redirect_to new_book_path
   end
 end
@@ -26,11 +26,15 @@ end
 end
 
 def update
-    @book = Book.find(params[:id])
-     @book.update(book_params)
-      redirect_to book_path(@book.id)
-    
+  @book = current_user.books.find(params[:id])
+  if @book.update(book_params)
+    redirect_to book_path(@book.id)
+  else
+    # バリデーションエラーがある場合の処理
+    puts @book.errors.full_messages 
+    redirect_to edit_book_path(@book.id)
   end
+end
   
   
   def destroy
@@ -42,7 +46,7 @@ def update
   private
   
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :user_id)
   end
   
 end
