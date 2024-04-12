@@ -1,26 +1,11 @@
-<!-- ユーザーの詳細 -->
- <% if current_user.present? %>
-    <h4>User info</h4>
-    <%= image_tag current_user.get_profile_image(200,200) %>
-    <h3>name: <%= current_user.name %></h3>
-    <h4>introduction</h4>
-    <p><%= current_user.introduction %></p>
-    <p><%= link_to "プロフィール編集", edit_user_path(current_user) %></p>
-  <% else %>
-    <p>ユーザーが存在しません。</p>
-  <% end %>
-
-<!-- 新規投稿フォーム -->
-<h2>New book</h2>
-<%= form_with(model: @book, url: books_path) do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-
-  <h4>Body</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit 'Create Book' %>
+<!-- ユーザー詳細・投稿フォーム -->
+<% if current_user.present? %>
+  <%= render partial: 'books/user_info', locals: { user: current_user } %>
+<% else %>
+  <p>ユーザーが存在しません。</p>
 <% end %>
+
+<%= render partial: 'books/form', locals: { book: @book } %>
 
 <!-- ユーザーの投稿一覧 -->
 <table>

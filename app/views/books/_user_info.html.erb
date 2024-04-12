@@ -1,0 +1,10 @@
+<div>
+  <h4>User info</h4>
+  <%= image_tag user.get_profile_image(200, 200) %>
+  <h3>name: <%= user.name %></h3>
+  <h4>introduction</h4>
+  <p><%= user.introduction %></p>
+  <% if user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
+  <% end %>
+</div>
