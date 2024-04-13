@@ -31,8 +31,11 @@
     <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %>
   </li>
 <% else %>
+　<li>
+    <%= link_to "Home", root_path %>
+  </li>
   <li>
-    <%= link_to "about", homes_about_path %>
+    <%= link_to "About", home_about_path %>
   </li>
   <li>
     <%= link_to "Sign up", new_user_registration_path %>
