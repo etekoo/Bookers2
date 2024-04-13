@@ -13,11 +13,10 @@ end
   def create
   @book = current_user.books.build(book_params)
   if @book.save
-    redirect_to books_path
+    redirect_to book_url(@book)
   else
-     # バリデーションエラーがある場合の処理
-    puts @book.errors.full_messages 
-    redirect_to new_book_path
+    puts @book.errors.full_messages
+    redirect_to books_path
   end
 end
 
