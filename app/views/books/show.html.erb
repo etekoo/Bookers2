@@ -1,18 +1,33 @@
-<!-- ユーザー詳細・投稿フォーム -->
+<div class="container">
+ <div class="row">
+   <div class="col-lg-3">
+     <!-- ユーザー詳細 -->
 <%= render partial: 'books/user_info', locals: { user: @user } %>
-
+     <!-- 投稿フォーム -->
 <%= render partial: 'books/form', locals: { book: @book } %>
+<div>
+  <%= flash[:notice] %>
+</div>
 
+<% if flash.now[:error].present? %>
+  <div>
+    <% flash.now[:error].each do |error_message| %>
+      <p><%= error_message %></p>
+    <% end %>
+  </div>
+<% end %>
+    </div>
+
+<div class="col-lg-8 offset-md-1">
 <!-- 投稿詳細 -->
 <h2>Book detail</h2>
+
 <table>
   <tr>
     <td>
-      <%= image_tag @post.user.get_profile_image(100, 100) %>
-    </td>
-    <td>
-      <%= link_to @post.user.name, user_path(@post.user) %>
-    </td>
+          <%= link_to image_tag(@post.user.get_profile_image(100, 100)), user_path(@post.user) %><br>
+          <%= link_to @post.user.name, user_path(@post.user) %>
+        </td>
     <td><%= @post.title %></td>
     <td><%= @post.body %></td>
     <td>
@@ -27,5 +42,10 @@
     </td>
   </tr>
 </table>
+</div>
+</div>
+</div>
+
+
 
 

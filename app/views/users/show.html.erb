@@ -1,14 +1,23 @@
-<!-- ユーザー詳細・投稿フォーム -->
+<div class="container">
+ <div class="row">
+   <div class="col-lg-3">
+     <!-- ユーザー詳細・投稿フォーム -->
 <%= render partial: 'books/user_info', locals: { user: @user } %>
 
 <%= render partial: 'books/form', locals: { book: @book } %>
+<div>
+  <%= flash[:notice] %>
+</div>
+</div>
 
+<div class="col-lg-8 offset-md-1">
 <!-- ユーザーの投稿一覧 -->
+<h1>Books</h1>
 <table>
   <tr>
-    
-    <th>タイトル</th>
-    <th>本文</th>
+    <th></th>
+    <th>Title</th>
+    <th>Opinion</th>
   </tr>
   <% @books.each do |book| %>
     <tr>
@@ -20,3 +29,6 @@
     </tr>
   <% end %>
 </table>
+</div>
+</div>
+</div>

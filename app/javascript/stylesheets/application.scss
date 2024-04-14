@@ -1,1 +1,29 @@
 @use '~bootstrap/scss/bootstrap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+
+.top_link {
+  color: #FFFFFF;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: solid 3px gray;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+td {
+  padding: 12px 0;
+  margin: 10px;
+  border-top: 1px solid #6c6b6b;
+　der-top: 1px solid #6c6b6b;
+}

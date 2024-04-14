@@ -1,4 +1,15 @@
 <!-- ユーザー -->
+<div>
+  <%= flash[:notice] %>
+  </div>
+<% if flash.now[:error].present? %>
+  <div>
+    <% flash.now[:error].each do |error_message| %>
+      <p><%= error_message %></p>
+    <% end %>
+  </div>
+<% end %>
+
 <h2>プロフィール編集</h2>
 <%= form_with model: @user do |f| %>
   <label for="inputName">Name</label>

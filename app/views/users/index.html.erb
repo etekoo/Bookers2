@@ -1,17 +1,27 @@
-<!-- ユーザー詳細・投稿フォーム -->
+<div class="container">
+ <div class="row">
+   <div class="col-lg-3">
+     <!-- ユーザー詳細 -->
 <% if current_user.present? %>
   <%= render partial: 'books/user_info', locals: { user: current_user } %>
 <% else %>
   <p>ユーザーが存在しません。</p>
 <% end %>
-
+     <!-- 投稿フォーム -->
 <%= render partial: 'books/form', locals: { book: @book } %>
+<div>
+  <%= flash[:notice] %>
+</div>
+　</div>
 
-<!-- ユーザーの投稿一覧 -->
+<div class="col-lg-8 offset-md-1">
+<!-- ユーザー 一覧 -->
+<h1>Users</h1>
 <table>
   <tr>
-    <th>プロフィール画像</th>
-    <th>ユーザー名</th>
+    <th>image</th>
+    <th>name</th>
+    <th></th>
   </tr>
   <% @users.each do |user| %>
     <tr>
@@ -21,3 +31,6 @@
     </tr>
   <% end %>
 </table>
+</div>
+</div>
+</div>

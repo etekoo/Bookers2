@@ -1,6 +1,16 @@
 <!-- 投稿編集 -->
 <h1>Books#edit</h1>
 <p>Find me in app/views/books/edit.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+</div>
+<% if flash.now[:error].present? %>
+  <div>
+    <% flash.now[:error].each do |error_message| %>
+      <p><%= error_message %></p>
+    <% end %>
+  </div>
+<% end %>
 
 <h1>Editing Book</h1>
 <%= form_with model: @book, url: book_path(@book), method: :patch do |f| %>
