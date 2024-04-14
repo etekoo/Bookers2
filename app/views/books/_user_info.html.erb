@@ -11,7 +11,7 @@
   </table>
   <h5>introduction</h5>
   <p><%= user.introduction %></p>
-  <% if user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
-  <% end %>
+ 
+  <p><%= link_to raw('<i class="fa-solid fa-user-gear"></i>'), edit_user_path(user), class: "btn btn-outline-secondary btn-block" %></p>
+  
 </div>
