@@ -1,6 +1,6 @@
 <div class="container">
  <div class="row">
-   <div class="col-lg-3">
+   <div class="col-md-3">
   <!-- ユーザー詳細 -->
 <% if current_user.present? %>
   <%= render partial: 'books/user_info', locals: { user: current_user } %>
@@ -22,7 +22,7 @@
 <% end %>
   </div>
 
-<div class="col-lg-8 offset-md-1">
+<div class="col-md-8 offset-md-1">
 <!-- 投稿一覧 -->
 <h1>Books</h1>
 

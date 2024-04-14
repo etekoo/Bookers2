@@ -63,7 +63,7 @@
   
     <li class="nav-item">
   　 <%= link_to home_about_path, class: 'nav-link text-white' do%>
-     <i class="fa-solid fa-circle-info"></i>
+     <i class="fa-solid fa-link"></i>
      About
      <% end %>
     </li>
@@ -89,6 +89,18 @@
 </nav>
 </header>
 
-    <%= yield %>
+<%= yield %>
+ <footer class="bg-White text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+          
+             
+            
+          </div>
+        </div>
+    </footer>
   </body>
 </html>
